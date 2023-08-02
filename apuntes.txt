@@ -1,0 +1,23 @@
+Los objetos no sin hijos de react. Por ende si se la pasa un objeto {} dara un error.
+
+Si se la pasa una function, no podemos olvidar los parentesis para el llamado de la funcion ejemplo:
+
+() ejecuta otra function
+
+() => elemento()
+
+JERARQUIA DE COMPONENTES.
+
+Cada video genera un titulo, fecha, descripcion
+
+Video; se cambiarian algunos parametros
+
+
+
+ESTILOS:
+
+en estilos en lineas no se puede reutilizar codigo y este lo hace mucho mas extenso.
+
+
+
+

@@ -1,0 +1,10 @@
+.boxMain{
+    background-color: rgb(170, 200, 111);
+}
+
+
+.containerVideos{
+    background-color: red;
+    margin: 1rem;
+    border: .4rem solid black;
+}
