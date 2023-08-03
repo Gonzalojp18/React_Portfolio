@@ -16,7 +16,23 @@ Video; se cambiarian algunos parametros
 
 ESTILOS:
 
+Cuando se actualiza un estado, siempre se realiza un nuevo renderizado........
+El estado no puede modificar nada que no este vinculado directamente al nodo que lo contiene...
+No hacer SetState si no hace falta.......
+
+
 en estilos en lineas no se puede reutilizar codigo y este lo hace mucho mas extenso.
+
+
+sideEffects
+
+Consecuencia de otra accion
+Se Ejecutan despues de la accion principal de
+Implicaciones externas
+
+
+
+
 
 
 
