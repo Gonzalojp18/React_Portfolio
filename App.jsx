@@ -1,44 +1,29 @@
-import Header from './src/components/Header'
-import Nav from './src/components/Nav'
-import MainTitle from './src/components/MainTitle'
-import Rrss from './src/components/Rrss'
-import DOTS from 'vanta/src/vanta.dots'
-import { useEffect } from 'react'
-
+import { Routes, Route } from 'react-router-dom';
+import Layout from './src/components/layout/Layout';
+import Home from './src/components/home/Home';
+import About from './src/components/about/About';
+import Skill from './src/components/skill/Skill';
+import Project from './src/components/projects/Project';
+import Contact from './src/components/contact/Contact';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
 
-    useEffect(function () {
-        DOTS({
-            el: '#vanta',
-            scale: 1,
-            scaleMobile: 0.6,
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: true,
-            minHeight: 400.00,
-            minWidth: 400.00,
-            amplitudeFactor: 4,
-            xOffset: 6,
-            yOffset: -0.10,
-            color: 0xcad6dd,
-            color2: 0xFD2155,
-            backgroundColor: 0x152b3c
-        })
-    }, [])
-
 
     return (
-        <div>
-            <div className='vanta' id='vanta'>
-                <Header />
-                <Nav />
-                <MainTitle />
-                <Rrss></Rrss>
-            </div>
-        </div>
-    )
+        <>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="About" element={<About />} />
+                    <Route path="Skills" element={<Skill />} />
+                    <Route path="Projects" element={<Project />} />
+                    <Route path="Contact" element={<Contact />} />
+                </Route>
+            </Routes>
+            <Toaster position="bottom-right" />
+        </>
+    );
 }
 
-
-export default App
+export default App;
