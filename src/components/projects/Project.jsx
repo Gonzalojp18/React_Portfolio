@@ -34,7 +34,7 @@ const Projects = () => {
             <motion.h2
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                className="text-5xl font-bold mt-10 mb-8 text-pink-700 dark:text-pink-600"
+                className="text-4xl font-bold mb-12 text-primary dark:text-blue-400"
             >
                 Projects
             </motion.h2>

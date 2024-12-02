@@ -15,7 +15,7 @@ const ThemeToggle = ({ className }) => {
     return (
         <button
             onClick={() => setDarkMode(!darkMode)}
-            className={`p-2 rounded-lg bg-pink-700 dark:bg-pink-600 text-white hover:bg-pink-600 dark:hover:bg-pink-900 transition-colors ${className}`}
+            className={`p-2 rounded-lg bg-primary dark:bg-blue-600 text-white hover:bg-secondary dark:hover:bg-blue-700 transition-colors ${className}`}
             aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
         >
             {darkMode ? <FaSun className="w-5 h-5" /> : <FaMoon className="w-5 h-5" />}

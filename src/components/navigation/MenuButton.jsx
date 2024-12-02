@@ -4,7 +4,7 @@ const MenuButton = ({ isOpen, setIsOpen }) => {
     return (
         <button
             onClick={() => setIsOpen(!isOpen)}
-            className="fixed top-4 left-4 z-50  p-2 bg-pink-700 rounded-md hover:bg-pink-600 transition-colors duration-300"
+            className="fixed top-4 left-4 z-50 p-2 bg-primary rounded-md hover:bg-secondary transition-colors duration-300"
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
             aria-controls="main-navigation"
