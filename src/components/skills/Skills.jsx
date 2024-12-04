@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FaReact, FaNodeJs, FaHtml5, FaCss3, FaGitAlt } from 'react-icons/fa';
-import { SiJavascript, SiMongodb, SiExpress, SiTailwindcss } from 'react-icons/si';
+import { SiJavascript, SiMongodb, SiExpress, SiTailwindcss, SiBootstrap } from 'react-icons/si';
 
 const Skill = () => {
     const frontendSkills = [
@@ -9,6 +9,7 @@ const Skill = () => {
         { icon: FaCss3, name: 'CSS3' },
         { icon: SiJavascript, name: 'JavaScript' },
         { icon: SiTailwindcss, name: 'Tailwind CSS' },
+        { icon: SiBootstrap, name: 'Bootstrap' },
     ];
 
     const backendSkills = [

@@ -113,8 +113,8 @@ const Contact = () => {
                         type="submit"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full py-2 bg-pink-700 dark:bg-pink-600 hover:bg-secondary
-                dark:hover:bg-blue-700 text-white rounded-lg transition-colors"
+                        className="w-full py-2 bg-pink-700 dark:bg-pink-600 hover:bg-pink-600
+                dark:hover:bg-pink-700 text-white rounded-lg transition-colors"
                     >
                         Send Message
                     </motion.button>
