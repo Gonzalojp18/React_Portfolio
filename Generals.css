@@ -10,7 +10,7 @@
 
 .box-home{
     @media screen and (max-width: 767px) {
-        margin: 0% 5% 35% 0;
+        margin: 0% 5% 100% 0;
     }
 
 }
@@ -57,7 +57,7 @@
     font-variant: small-caps;
     @media screen and (max-width: 767px) {
         font-size: .8rem;
-        max-width: 80%;
+        max-width: 60%;
 }
 }
 
