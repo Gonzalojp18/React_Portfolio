@@ -1,3 +1,7 @@
+#vanta{
+    height: 99vh;
+}
+
 .mainTitle{
     @media screen and (max-width: 767px) {
         font-size: 2rem;

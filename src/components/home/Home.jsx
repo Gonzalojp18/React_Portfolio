@@ -31,7 +31,7 @@ const Home = ({ onNavigate }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="h-screen w-full flex items-center relative overflow-hidden pl-10"
+            className="w-full flex items-center relative overflow-hidden pl-10"
             id="vanta"
         >
             <div className="z-10 space-y-4 box-home">
