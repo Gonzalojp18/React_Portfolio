@@ -12,7 +12,7 @@ const Home = ({ onNavigate }) => {
             mouseControls: true,
             touchControls: true,
             gyroControls: true,
-            minHeight: 200.00,
+            minHeight: 400.00,
             minWidth: 400.00,
             amplitudeFactor: 4,
             xOffset: 6,
