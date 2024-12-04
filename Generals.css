@@ -6,7 +6,7 @@
 
 .box-home{
     @media screen and (max-width: 767px) {
-        margin: 50% 5% 0% 0;
+        margin: 0% 5% 35% 0;
     }
 
 }

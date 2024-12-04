@@ -44,7 +44,7 @@ const Contact = () => {
         >
             <motion.h2
                 variants={itemVariants}
-                className="text-5xl font-bold mb-8 text-pink-700 dark:text-blue-400 mainTitle"
+                className="text-5xl font-bold mb-8 text-pink-700 dark:text-pink-600 mainTitle"
             >
                 Let's Connect
             </motion.h2>
@@ -66,8 +66,8 @@ const Contact = () => {
                             type="text"
                             placeholder="Your Name"
                             {...register('name', { required: 'Name is required' })}
-                            className="w-full px-4 py-2 bg-dark/30 dark:bg-gray-800/30 border border-primary/20 
-                dark:border-blue-400/20 rounded-lg focus:outline-none focus:border-primary 
+                            className="w-full px-4 py-2 bg-dark/30 dark:bg-gray-800/30 border border-primary/20
+                dark:border-blue-400/20 rounded-lg focus:outline-none focus:border-primary
                 dark:focus:border-blue-400 transition-colors"
                         />
                         {errors.name && (
@@ -113,7 +113,7 @@ const Contact = () => {
                         type="submit"
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className="w-full py-2 bg-pink-700 dark:bg-blue-600 hover:bg-secondary
+                        className="w-full py-2 bg-pink-700 dark:bg-pink-600 hover:bg-secondary
                 dark:hover:bg-blue-700 text-white rounded-lg transition-colors"
                     >
                         Send Message
