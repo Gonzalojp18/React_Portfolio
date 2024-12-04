@@ -1,38 +1,41 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import Navbar from '../Navigation/Navbar';
-import MenuButton from '../Navigation/MenuButton';
-import ThemeToggle from '../Theme/ThemeToggle';
+// import { gsap } from 'gsap';
+import Navbar from '../navigation/Navbar';
+import ThemeToggle from '../theme/ThemeToggle';
 
 const Layout = () => {
-    const [isNavOpen, setIsNavOpen] = useState(true);
     const location = useLocation();
+    const mainRef = useRef(null);
     const isHome = location.pathname === '/';
 
     useEffect(() => {
-        if (isHome) {
-            setIsNavOpen(false);
-        }
-    }, [location.pathname, isHome]);
+        // Page transition animation
+        gsap.to(mainRef.current, {
+            opacity: 0,
+            duration: 0.3,
+            onComplete: () => {
+                gsap.to(mainRef.current, {
+                    opacity: 1,
+                    duration: 0.3,
+                    delay: 0.1
+                });
+            }
+        });
+    }, [location.pathname]);
 
     return (
-        <div className={`min-h-screen overflow-x-hidden ${isHome ? 'bg-transparent' : 'bg-dark dark:bg-gray-900'}`}>
+        <div className={`w-full ${isHome ? 'bg-dark' : 'bg-dark dark:bg-gray-900'}`}>
+                        <Navbar />
             {!isHome && (
-                <>
-                    <MenuButton isOpen={isNavOpen} setIsOpen={setIsNavOpen} />
-                    <ThemeToggle className="fixed top-4 right-4 z-50" />
-                </>
+                <ThemeToggle className="fixed top-4 right-4 z-50" />
             )}
-
-            <div className={`flex ${isHome ? 'w-full' : ''}`}>
-                {!isHome && <Navbar isOpen={isNavOpen} setIsOpen={setIsNavOpen} />}
-                <main
-                    className={`min-h-screen transition-all duration-300 ${isHome ? 'w-full' : isNavOpen ? 'md:w-[85%] lg:w-[80%] md:ml-[15%] lg:ml-[20%]' : 'w-full'
-                        }`}
-                >
-                    <Outlet />
-                </main>
-            </div>
+            <main
+                ref={mainRef}
+                className="min-h-screen w-full"
+            >
+                <Outlet />
+            </main>
         </div>
     );
 };

@@ -1,29 +1,39 @@
-import { Routes, Route } from 'react-router-dom';
-import Layout from './src/components/layout/Layout';
-import Home from './src/components/home/Home';
-import About from './src/components/about/About';
-import Skill from './src/components/skill/Skill';
-import Project from './src/components/projects/Project';
-import Contact from './src/components/contact/Contact';
+import { useState } from 'react';
 import { Toaster } from 'react-hot-toast';
+import Navbar from './src/components/navigation/Navbar';
+import Home from './src/components/home/Home';
+import Modal from './src/components/modal/Modal';
+import About from './src/components/about/About';
+import Skills from './src/components/skills/Skills';
+import Projects from './src/components/projects/Project';
+import Contact from './src/components/contact/Contact';
+import ThemeToggle from './src/components/theme/ThemeToggle';
 
 function App() {
+  const [activeModal, setActiveModal] = useState(null);
 
+  return (
+    <div className="relative min-h-screen bg-dark overflow-hidden">
+      <Home onNavigate={setActiveModal} />
+      <ThemeToggle className="fixed top-4 right-4 z-50" />
 
-    return (
-        <>
-            <Routes>
-                <Route path="/" element={<Layout />}>
-                    <Route index element={<Home />} />
-                    <Route path="About" element={<About />} />
-                    <Route path="Skills" element={<Skill />} />
-                    <Route path="Projects" element={<Project />} />
-                    <Route path="Contact" element={<Contact />} />
-                </Route>
-            </Routes>
-            <Toaster position="bottom-right" />
-        </>
-    );
+      <Modal
+        isOpen={!!activeModal}
+        onClose={() => setActiveModal(null)}
+        activeSection={activeModal}
+      >
+        {activeModal && {
+          about: <About />,
+          skill: <Skills />,
+          projects: <Projects />,
+          contact: <Contact />
+        }[activeModal]}
+      </Modal>
+
+      <Navbar onNavigate={setActiveModal} activeSection={activeModal} />
+      <Toaster position="bottom-right" />
+    </div>
+  );
 }
 
 export default App;

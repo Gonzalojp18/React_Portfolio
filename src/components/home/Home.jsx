@@ -1,11 +1,8 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import DOTS from 'vanta/src/vanta.dots'
 import { useEffect } from 'react'
 
-const Home = () => {
-
-
+const Home = ({ onNavigate }) => {
 
     useEffect(function () {
         DOTS({
@@ -22,10 +19,11 @@ const Home = () => {
             yOffset: -0.10,
             color: 0xcad6dd,
             color2: 0xFD2155,
-            backgroundColor: 0x152b3c
+            backgroundColor: 0x1e293b
+            // 0x1e293b testd
+            // 0x152b3c original
         })
     }, [])
-
 
 
     return (
@@ -36,8 +34,8 @@ const Home = () => {
             className="h-screen w-full flex items-center relative overflow-hidden pl-10"
             id="vanta"
         >
-            <div className="z-10 space-y-4">
-            <motion.p
+            <div className="z-10 space-y-4 box-home">
+                <motion.p
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
@@ -74,23 +72,20 @@ const Home = () => {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.4 }}
-                    className="available"
+                    className="available text-teal-500"
                 >
                     Available for projects
                 </motion.div>
 
-                <motion.div
+                <motion.button
                     initial={{ y: 50, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.6 }}
+                    onClick={() => onNavigate('about')}
+                    className="inline-block text-white px-6 py-2 rounded-lg transition-colors duration-300 aboutMeButtom"
                 >
-                    <Link
-                        to="/about"
-                        className="inline-block px-8 py-3 rounded-lg aboutMeButtom"
-                    >
-                        About Me
-                    </Link>
-                </motion.div>
+                    About Me
+                </motion.button>
             </div>
         </motion.div>
     );

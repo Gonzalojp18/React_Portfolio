@@ -1,56 +1,45 @@
-import { NavLink, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { FaHome, FaUser, FaCode, FaProjectDiagram, FaEnvelope } from 'react-icons/fa';
 
 const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'About Me' },
-    { path: '/skills', label: 'Tech & Skills' },
-    { path: '/projects', label: 'Projects' },
-    { path: '/contact', label: 'Contact' },
+    { id: 'home', label: 'Home', icon: FaHome },
+    { id: 'about', label: 'About', icon: FaUser },
+    { id: 'skill', label: 'Skill', icon: FaCode },
+    { id: 'projects', label: 'Project', icon: FaProjectDiagram },
+    { id: 'contact', label: 'Contact', icon: FaEnvelope },
 ];
 
-const Navbar = ({ isOpen, setIsOpen }) => {
-    const location = useLocation();
-
-    const navVariants = {
-        open: { x: 0, transition: { type: "spring", stiffness: 300, damping: 10 } },
-        closed: { x: '0', transition: { type: "spring", stiffness: 300, damping: 10 } }
-    };
-
-    const handleNavClick = (path) => {
-        if (path === '/') {
-            setIsOpen(false);
+const Navbar = ({ onNavigate, activeSection }) => {
+    const handleNavigation = (id) => {
+        if (id === 'home') {
+            onNavigate(null);
+        } else {
+            onNavigate(id);
         }
     };
 
     return (
         <motion.nav
-            id="main-navigation"
-            variants={navVariants}
-            initial="closed"
-            animate={isOpen ? "open" : "closed"}
-            className="fixed top-0 left-0 h-full bg-dark dark:bg-gray-900 text-light dark:text-white
-        w-full md:w-[15%] lg:w-[20%] min-w-[250px] md:min-w-0
-        flex flex-col items-center justify-center shadow-lg z-40"
-            role="navigation"
-            aria-label="Main navigation"
+            initial={{ y: 100 }}
+            animate={{ y: 0 }}
+            className="fixed bottom-0 left-0 right-0 z-50"
         >
-            <div className="space-y-8 w-full px-6">
-                {navItems.map((item) => (
-                    <NavLink
-                        key={item.path}
-                        to={item.path}
-                        className={({ isActive }) =>
-                            `block text-2xl hover:text-pink-700 dark:hover:text-pink-900 transition-colors duration-300
-            ${isActive ? 'text-pink-700 dark:text-pink-600' : 'text-light dark:text-white'}
-            w-full text-center py-2 rounded-lg hover:bg-gray-700 dark:hover:bg-blue-400/10`
-                        }
-                        onClick={() => handleNavClick(item.path)}
-                        role="menuitem"
-                    >
-                        {item.label}
-                    </NavLink>
-                ))}
+            <div className="max-w-2xl mx-auto px-4 py-2">
+                <div className="flex justify-around items-center">
+                    {navItems.map((item) => (
+                        <button
+                            key={item.id}
+                            onClick={() => handleNavigation(item.id)}
+                            className={`flex flex-col items-center p-2 rounded-lg transition-all duration-300 ${(item.id === 'home' && !activeSection) || activeSection === item.id
+                                    ? 'text-teal-600 dark:text-pink-600 transform scale-110'
+                                    : 'text-light/60 dark:text-white/60 hover:text-teal-600 dark:hover:text-teal-400 '
+                                }`}
+                        >
+                            <item.icon className="text-2xl mb-1" />
+                            <span className="text-sm font-bold">{item.label}</span>
+                        </button>
+                    ))}
+                </div>
             </div>
         </motion.nav>
     );
